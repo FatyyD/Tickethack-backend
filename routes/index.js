@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const Trip = require('../models/trips');
 
 // router.post('/trips', (req, res) => {
 //   const departure = req.body.departure;
