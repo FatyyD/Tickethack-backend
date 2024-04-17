@@ -9,13 +9,19 @@ const Booking = require('../models/booking');
 router.get('/', async(req, res) => {
     Trip.findOne({departure: req.body.departure, arrival: req.body.arrival}).then((data) =>{
         if(data) {
-          res.json({result: true});
+          res.json({trips: data});
         } else{
           res.json({result: false});
         }
         // res.json({data});
+
+    //  Trip.find()
+    //  .then( data =>
+    //     res.json({trips: Trip})
+    
+     
     })
-})
+ })
 
 
 
