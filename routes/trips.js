@@ -28,20 +28,20 @@ router.post('/cart', (req, res) => {
     });
   
     newCart.save()
-    Trip.find().then(data => {
-      res.json({ allTrips: data });
+    Cart.find().then(data => {
+      res.json({ allCarts: data });
     });
    });
 
    router.get('/cart', (req, res) => {
-    Trip.find().then(data => {
-      res.json({ allTrips: data });
+    Cart.find().then(data => {
+      res.json({ allCarts: data });
     });
   });
 
 //ajouter une réservation
 router.post('/booking', (req, res) => {
-    const newCart = new Cart({
+    const newBooking = new Booking({
         departure: req.body.departure,
         arrival: req.body.arrival,
         horaire: req.body.horaire,
@@ -49,15 +49,15 @@ router.post('/booking', (req, res) => {
         timeDepart: req.body.timeDepart
     });
   
-    newCart.save()
-    Trip.find().then(data => {
-      res.json({ allTrips: data });
+    newBooking.save()
+    Booking.find().then(data => {
+      res.json({ allbookings: data });
     });
    });
 
    router.get('/booking', (req, res) => {
-    Trip.find().then(data => {
-      res.json({ allTrips: data });
+    Booking.find().then(data => {
+      res.json({ allbookings: data });
     });
   });
 
