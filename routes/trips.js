@@ -8,12 +8,12 @@ const Booking = require('../models/booking');
 //recherche de trajets
 router.get('/', async(req, res) => {
     Trip.findOne({departure: req.body.departure, arrival: req.body.arrival}).then((data) =>{
-        // if(data) {
-        //   res.json({result: true});
-        // } else{
-        //   res.json({result: false});
-        // }
-        res.json({data});
+        if(data) {
+          res.json({result: true});
+        } else{
+          res.json({result: false});
+        }
+        // res.json({data});
     })
 })
 
