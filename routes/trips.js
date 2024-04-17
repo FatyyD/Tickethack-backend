@@ -4,11 +4,23 @@ const Trip = require('../models/trips');
 const Cart = require('../models/cart');
 const Booking = require('../models/booking');
 
+const trips = []
 
+router.post('/', (req, res) => {
+  let newTrips = {departure: data.departure, arrival: data.arrival, date: data.date, Number: data.Number}
+  .then(data => {
+
+    trips.push(newTrips);
+    res.json({result: true, trips: newTrips});
+  });
+});
+
+  
 //recherche de trajets
-router.get('/', async(req, res) => {
-    Trip.findOne({departure: req.body.departure, arrival: req.body.arrival}).then((data) =>{
+router.get('/:departure/:arrival', async(req, res) => {
+    Trip.find({departure: req.params.departure, arrival: req.params.arrival}).then((data) =>{
         if(data) {
+          console.log(data);
           res.json({trips: data});
         } else{
           res.json({result: false});
