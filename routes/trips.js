@@ -26,7 +26,7 @@ const endDate = `${formattedDate}T23:59:59.999`;
 
     Trip.find({departure: { $regex: new RegExp(req.params.departure, "i") },
               arrival: { $regex: new RegExp(req.params.arrival, "i") },
-              date: { $gte: startdate, $lte: endDate }
+              date: { $gte: startdate, $lte: endDate },
             })
       .then((data) =>{
       if(data) {
